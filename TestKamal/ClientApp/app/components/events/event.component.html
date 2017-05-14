@@ -1,0 +1,55 @@
+﻿
+<table class='table' style="background-color:#FFFFFF; border:2px #6D7B8D; padding:5px;width:99%;margin-top:30px;" cellpadding="2" cellspacing="2" *ngIf="data">
+    <tbody>
+        <tr>
+            <td align="left" style="border: solid 1px #659EC7; padding: 5px;" (click)="onSelect(event.eventId)">
+                <span style="color:#9F000F"><b>Total Events</b></span>
+            </td>
+            <td align="left" style="border: solid 1px #659EC7; padding: 5px;" (click)="onSelect(event.eventId)">
+                <span style="color:#9F000F">{{total}}</span>
+            </td>
+        </tr>
+        <tr>
+            <td align="left" style="border: solid 1px #659EC7; padding: 5px;" (click)="onSelect(event.eventId)">
+                <span style="color:#9F000F"><b>Page Size:</b></span>
+            </td>
+            <td align="left" style="border: solid 1px #659EC7; padding: 5px;" (click)="onSelect(event.eventId)">
+                <span style="color:#9F000F">{{pageSize}}</span>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<table class='table' style="background-color:#FFFFFF; border:2px #6D7B8D; padding:5px;width:99%;" cellpadding="2" cellspacing="2" *ngIf="data">
+    <tbody>
+        <tr>
+            <td  style="padding: 5px;">
+                <label *ngFor="let page  of totalPages " >
+                    <input type="radio" [(ngModel)]="PageNumber" [value]="page" name="page.{{page}}">
+                    <span>
+                        <b>
+                            {{page}}
+                        </b>
+                    </span>
+                </label>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<table class='table' style="background-color:#FFFFFF; border:2px #6D7B8D; padding:5px;width:99%;" cellpadding="2" cellspacing="2" *ngIf="data">
+    <thead>
+        <tr style="height: 30px; background-color:#336699 ; color:#FFFFFF ;border: solid 1px #659EC7;">
+            <th width="240" align="center">Event Name</th>
+            <th width="240" align="center">Image</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let event  of data" >
+            <td align="left" style="border: solid 1px #659EC7; padding: 5px;" (click)="onSelect(event.eventId)">
+                <span style="color:#9F000F">{{event.eventName}}</span>
+            </td>
+            <td align="left" style="border: solid 1px #659EC7; padding: 5px;" (click)="onSelect(event.eventId)">
+                    <span  style="color:#9F000F"><img src="{{getImagePath(event.eventId)}}" alt="Smiley face" height="100" width="100"></span>
+            </td>
+        </tr>
+    </tbody>
+</table>

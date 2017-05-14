@@ -1,0 +1,48 @@
+
+<h1 *ngIf="eventDetails">Event Details:{{eventDetails[0].eventName}}</h1>
+<table *ngIf="eventDetails" class='table' style="background-color:#FFFFFF; border:2px #6D7B8D; padding:5px;width:99%;" cellpadding="2" cellspacing="2" >
+    <thead>
+        <tr style="height: 30px; background-color:#336699 ; color:#FFFFFF ;border: solid 1px #659EC7;">
+            <th width="240" align="center">Images</th>
+        </tr>
+    </thead>
+    <tbody >
+        <template ngFor let-image [ngForOf]="eventDetails[0].eventImages">
+            <tr>
+                <td align="left" style="border: solid 1px #659EC7; padding: 5px;">
+                    <img src="{{getImagePath(image.imageId)}}" alt="Smiley face" height="400" width="600">
+                </td>
+            </tr>
+            <tr>
+                <td align="left" style="border: solid 1px #659EC7; padding: 5px;">
+                    {{image.description}}
+                </td>
+            </tr>
+        </template>
+   </tbody>
+</table>
+
+<table *ngIf="eventDetails" class='table' style="background-color:#FFFFFF; border:2px #6D7B8D; padding:5px;width:99%;" cellpadding="2" cellspacing="2">
+    <thead>
+        <tr style="height: 30px; background-color:#336699 ; color:#FFFFFF ;border: solid 1px #659EC7;">
+            <th width="150" align="center">Start Date</th>
+            <th width="150" align="center">End Date</th>
+            <th width="220" align="center">Peoples</th>
+        </tr>
+    </thead>
+    <tbody>
+        
+            <tr *ngFor="let eventdate of eventDetails[0].eventDates">
+                <td align="left" style="border: solid 1px #659EC7; padding: 5px;">
+                  {{eventdate.startDate|date: 'dd/MM/yyyy'}}
+                </td>
+                <td align="left" style="border: solid 1px #659EC7; padding: 5px;">
+                    {{eventdate.endDate|date: 'dd/MM/yyyy'}}
+                </td>
+                <td align="left" style="border: solid 1px #659EC7; padding: 5px;">
+                   {{eventdate.numOfPeople}}
+                </td>
+            </tr>
+        
+    </tbody>
+</table>
