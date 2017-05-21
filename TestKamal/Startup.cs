@@ -55,7 +55,7 @@ namespace TestKamal
             }
 
             app.UseStaticFiles();
-
+          
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
